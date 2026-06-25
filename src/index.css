@@ -1,0 +1,76 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Fraunces", Georgia, serif;
+  --font-sans: "Inter", system-ui, sans-serif;
+
+  --color-cream-50: #fbf8f3;
+  --color-cream-100: #f5efe4;
+  --color-cream-200: #ebe2d1;
+
+  --color-sage-50: #f3f5f1;
+  --color-sage-100: #e3e8e0;
+  --color-sage-200: #c7d2c2;
+  --color-sage-300: #9fb09a;
+  --color-sage-400: #6f8a6b;
+  --color-sage-500: #4f6b4b;
+  --color-sage-600: #3d5439;
+  --color-sage-700: #304a2c;
+
+  --color-clay-300: #d9a37a;
+  --color-clay-400: #c4814f;
+  --color-clay-500: #a9633a;
+  --color-clay-600: #8a4d2e;
+
+  --color-ink-700: #3a3530;
+  --color-ink-900: #2a2620;
+}
+
+html {
+  font-family: var(--font-sans);
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-cream-50);
+  color: var(--color-ink-900);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  letter-spacing: -0.01em;
+}
+
+/* Numeric values and small labels use sans to avoid a third type treatment */
+.font-num {
+  font-family: var(--font-sans);
+  font-variant-numeric: tabular-nums;
+}
+
+/* subtle paper texture */
+.bg-paper {
+  background-color: var(--color-cream-50);
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(159, 176, 154, 0.10) 0%, transparent 45%),
+    radial-gradient(circle at 85% 15%, rgba(196, 129, 79, 0.07) 0%, transparent 40%);
+}
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--color-cream-100); }
+::-webkit-scrollbar-thumb { background: var(--color-sage-300); border-radius: 8px; }
+
+.input {
+  width: 100%;
+  border-radius: 0.625rem;
+  border: 1px solid var(--color-cream-200);
+  background-color: var(--color-cream-50);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  outline: none;
+  transition: border-color 0.15s, background-color 0.15s;
+}
+.input:focus {
+  border-color: var(--color-sage-400);
+  background-color: #fff;
+}
