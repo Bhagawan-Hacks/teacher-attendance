@@ -7,7 +7,9 @@ import type {
   XpEntry,
   VisitEntry,
   Registration,
+  ChatMessage,
 } from "./types";
+import { getLocalMessages, addLocalMessage } from "./store";
 
 /**
  * Async data layer.
@@ -506,4 +508,45 @@ export async function studentXp(studentEmail: string): Promise<number> {
   return xp
     .filter((e) => e.studentEmail === studentEmail)
     .reduce((s, e) => s + e.points, 0);
+}
+
+/* ----------------------------- Group Chat ----------------------------- */
+
+const CHAT_MESSAGE_MAP: Record<string, string> = {
+  id: "id",
+  sender_name: "senderName",
+  sender_email: "senderEmail",
+  sender_role: "senderRole",
+  content: "content",
+  created_at: "createdAt",
+};
+
+export async function fetchMessages(): Promise<ChatMessage[]> {
+  if (isSupabaseConfigured) {
+    const { data, error } = await supabase
+      .from("messages")
+      .select("*")
+      .order("created_at", { ascending: true });
+    if (error) throw error;
+    if (!data) return [];
+    return data.map((r) => toCamel<ChatMessage>(r as Record<string, unknown>, CHAT_MESSAGE_MAP));
+  }
+  return Promise.resolve(getLocalMessages());
+}
+
+export async function sendMessage(msg: ChatMessage): Promise<void> {
+  if (isSupabaseConfigured) {
+    const { error } = await supabase.from("messages").insert({
+      id: msg.id,
+      sender_name: msg.senderName,
+      sender_email: msg.senderEmail,
+      sender_role: msg.senderRole,
+      content: msg.content,
+      created_at: msg.createdAt,
+    });
+    if (error) throw error;
+    return;
+  }
+  addLocalMessage(msg);
+  return Promise.resolve();
 }

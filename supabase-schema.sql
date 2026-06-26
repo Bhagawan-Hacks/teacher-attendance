@@ -113,3 +113,19 @@ create policy "visits_insert" on public.visits for insert with check (true);
 create policy "registrations_read" on public.registrations for select using (true);
 create policy "registrations_insert" on public.registrations for insert with check (true);
 create policy "registrations_update" on public.registrations for update using (true);
+
+-- ---------- MESSAGES (Group Chat) ----------
+create table if not exists public.messages (
+  id text primary key,
+  sender_name text not null,
+  sender_email text not null,
+  sender_role text not null check (sender_role in ('student', 'admin')),
+  content text not null,
+  created_at timestamptz not null default now()
+);
+
+alter table public.messages enable row level security;
+
+-- Messages: public read, public insert
+create policy "messages_read" on public.messages for select using (true);
+create policy "messages_insert" on public.messages for insert with check (true);

@@ -61,3 +61,12 @@ export interface Registration {
   reviewedAt?: string;
   rejectReason?: string;
 }
+
+export interface ChatMessage {
+  id: string;
+  senderName: string;
+  senderEmail: string;
+  senderRole: "student" | "admin";
+  content: string;
+  createdAt: string; // ISO timestamp
+}

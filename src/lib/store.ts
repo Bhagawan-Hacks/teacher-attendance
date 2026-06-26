@@ -6,6 +6,7 @@ import type {
   XpEntry,
   VisitEntry,
   Registration,
+  ChatMessage,
 } from "./types";
 
 const ATT_KEY = "edumark_attendance";
@@ -14,6 +15,7 @@ const XP_KEY = "edumark_xp";
 const VIS_KEY = "edumark_visits";
 const TEA_KEY = "edumark_teachers";
 const REG_KEY = "edumark_registrations";
+const MSG_KEY = "edumark_messages";
 
 // Bump this when seed data changes so cached localStorage resets cleanly.
 const DATA_VERSION = "v3";
@@ -23,7 +25,7 @@ const VER_KEY = "edumark_data_version";
   try {
     const v = localStorage.getItem(VER_KEY);
     if (v !== DATA_VERSION) {
-      [TEA_KEY, ATT_KEY, REV_KEY, XP_KEY, VIS_KEY, REG_KEY].forEach((k) =>
+      [TEA_KEY, ATT_KEY, REV_KEY, XP_KEY, VIS_KEY, REG_KEY, MSG_KEY].forEach((k) =>
         localStorage.removeItem(k),
       );
       localStorage.setItem(VER_KEY, DATA_VERSION);
@@ -276,4 +278,28 @@ export function isApproved(email: string): boolean {
 export function registrationStatus(email: string): Registration["status"] | null {
   const r = getRegistrations().find((x) => x.email === email);
   return r?.status ?? null;
+}
+
+/* ----------------------------- Group Chat ----------------------------- */
+
+export function getLocalMessages(): ChatMessage[] {
+  const raw = localStorage.getItem(MSG_KEY);
+  if (!raw) {
+    localStorage.setItem(MSG_KEY, JSON.stringify([]));
+    return [];
+  }
+  try {
+    return JSON.parse(raw);
+  } catch {
+    return [];
+  }
+}
+
+export function saveLocalMessages(messages: ChatMessage[]) {
+  localStorage.setItem(MSG_KEY, JSON.stringify(messages));
+}
+
+export function addLocalMessage(msg: ChatMessage) {
+  const all = getLocalMessages();
+  saveLocalMessages([...all, msg]);
 }

@@ -10,6 +10,7 @@ import { TeacherDetail } from "./pages/TeacherDetail";
 import { Admin } from "./pages/Admin";
 import { Profile } from "./pages/Profile";
 import { Leaderboard } from "./pages/Leaderboard";
+import { Chat } from "./pages/Chat";
 
 function AppInner() {
   useDailyVisit();
@@ -25,6 +26,7 @@ function AppInner() {
           <Route path="/admin" element={<Admin />} />
           <Route path="/leaderboard" element={<Leaderboard />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/chat" element={<Chat />} />
           <Route path="*" element={<Home />} />
         </Routes>
       </main>

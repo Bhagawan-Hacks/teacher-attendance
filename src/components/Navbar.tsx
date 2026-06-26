@@ -1,5 +1,5 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { GraduationCap, LogOut, ShieldCheck, UserRound } from "lucide-react";
+import { GraduationCap, LogOut, MessageSquare, ShieldCheck, UserRound } from "lucide-react";
 import { useAuth } from "../lib/auth";
 
 export function Navbar() {
@@ -39,6 +39,17 @@ export function Navbar() {
           {navLink("/leaderboard", "Leaderboard")}
           {user?.role === "admin" && navLink("/admin", "Attendance")}
           {user && navLink("/profile", "My Activity")}
+          {user && (
+            <Link
+              to="/chat"
+              className={`flex items-center gap-1.5 text-sm font-medium transition-colors ${
+                location.pathname === "/chat" ? "text-sage-700" : "text-ink-700/70 hover:text-sage-600"
+              }`}
+            >
+              <MessageSquare size={14} />
+              Group Chat
+            </Link>
+          )}
         </nav>
 
         <div className="flex items-center gap-3">
