@@ -34,7 +34,7 @@ export function Home() {
     <div className="bg-paper">
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div className="mx-auto max-w-[1600px] px-5 pt-16 pb-12 sm:px-8 lg:px-12 sm:pt-20">
+        <div className="mx-auto max-w-[1600px] px-5 pt-8 pb-10 sm:px-8 lg:px-12 sm:pt-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, y: 18 }}

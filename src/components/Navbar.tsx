@@ -24,13 +24,13 @@ export function Navbar() {
   return (
     <header className="sticky top-0 z-40 border-b border-cream-200/80 bg-cream-50/85 backdrop-blur-md">
       <div className="mx-auto flex max-w-[1600px] items-center justify-between px-5 py-3.5 sm:px-8 lg:px-12">
-        <Link to="/" className="flex items-center gap-2.5">
+        <Link to="/" className="flex items-center gap-2">
           <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-sage-700 text-cream-50">
             <GraduationCap size={20} />
           </div>
-          <div className="leading-tight">
-            <div className="text-lg font-bold text-ink-900">EduMark</div>
-            <div className="text-[11px] uppercase tracking-wider text-sage-500">Faculty Hub</div>
+          <div className="flex flex-col justify-center">
+            <div className="text-lg font-bold leading-none text-ink-900">EduMark</div>
+            <div className="mt-0.5 text-[10px] font-semibold uppercase tracking-wider leading-none text-sage-500">Faculty Hub</div>
           </div>
         </Link>
 
