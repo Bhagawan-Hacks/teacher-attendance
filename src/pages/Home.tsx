@@ -6,6 +6,7 @@ import { fetchTeachers, fetchLeaderboard, fetchReviews, fetchAttendance } from "
 import { useAsync } from "../lib/useAsync";
 import { TeacherCard } from "../components/TeacherCard";
 import { Spinner } from "../components/Loading";
+import heroIllustration from "../assets/hero-illustration.png";
 
 export function Home() {
   const { data: teachers, loading } = useAsync(() => fetchTeachers(), []);
@@ -34,27 +35,45 @@ export function Home() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <div className="mx-auto max-w-[1600px] px-5 pt-16 pb-12 sm:px-8 lg:px-12 sm:pt-20">
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="max-w-2xl"
-          >
-            <div className="inline-flex items-center gap-2 rounded-full border border-sage-200 bg-sage-50 px-3 py-1 text-xs font-medium text-sage-600">
-              <Sparkles size={13} />
-              Where great teaching is noticed
-            </div>
-            <h1 className="mt-5 font-serif text-4xl font-600 leading-[1.1] text-ink-900 sm:text-5xl">
-              Know your teachers.
-              <br />
-              <span className="text-sage-600">Shape the classroom together.</span>
-            </h1>
-            <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-700/75">
-              Explore faculty profiles, see attendance records, and share honest
-              feedback. The more you engage, the higher you climb the student
-              leaderboard.
-            </p>
-          </motion.div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="lg:col-span-7 max-w-2xl"
+            >
+              <div className="inline-flex items-center gap-2 rounded-full border border-sage-200 bg-sage-50 px-3 py-1 text-xs font-medium text-sage-600">
+                <Sparkles size={13} />
+                Where great teaching is noticed
+              </div>
+              <h1 className="mt-5 font-serif text-4xl font-600 leading-[1.1] text-ink-900 sm:text-5xl">
+                Know your teachers.
+                <br />
+                <span className="text-sage-600">Shape the classroom together.</span>
+              </h1>
+              <p className="mt-5 max-w-xl text-lg leading-relaxed text-ink-700/75">
+                Explore faculty profiles, see attendance records, and share honest
+                feedback. The more you engage, the higher you climb the student
+                leaderboard.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.5, delay: 0.15 }}
+              className="hidden lg:block lg:col-span-5 relative"
+            >
+              <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl border border-cream-200 bg-cream-50/50 p-2 shadow-sm">
+                <img
+                  src={heroIllustration}
+                  alt="EduMark Classroom Illustration"
+                  className="h-full w-full object-cover rounded-2xl"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-cream-100/10 via-transparent to-sage-50/10 pointer-events-none" />
+              </div>
+            </motion.div>
+          </div>
 
           <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3 sm:gap-6">
             <Stat icon={<Star size={18} />} label="Avg. rating" value="4.8" />
