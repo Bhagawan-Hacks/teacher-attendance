@@ -119,7 +119,7 @@ export function Signup() {
               <GraduationCap size={22} />
             </div>
             <div className="leading-tight">
-              <div className="text-xl font-bold">EduMark</div>
+              <div className="text-xl font-bold">BCA</div>
               <div className="text-[11px] uppercase tracking-wider text-cream-100/70">Faculty Hub</div>
             </div>
           </Link>

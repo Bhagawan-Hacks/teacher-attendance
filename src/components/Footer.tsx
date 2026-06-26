@@ -10,7 +10,7 @@ export function Footer() {
             <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-sage-700 text-cream-50">
               <GraduationCap size={18} />
             </div>
-            <span className="text-lg font-bold">EduMark</span>
+            <span className="text-lg font-bold">BCA Faculty Hub</span>
           </div>
           <p className="mt-3 max-w-xs text-sm leading-relaxed text-ink-700/70">
             A calm, human space for students and faculty — celebrating great teaching,
@@ -30,10 +30,10 @@ export function Footer() {
           <h4 className="text-sm font-semibold text-sage-700">Contact</h4>
           <div className="mt-3 flex items-center gap-2 text-sm text-ink-700/70">
             <Mail size={15} className="text-clay-400" />
-            hello@edumark.edu
+            hello@bcafacultyhub.edu
           </div>
           <p className="mt-3 text-xs text-ink-700/50">
-            © {new Date().getFullYear()} EduMark Faculty Hub. Crafted with care.
+            © {new Date().getFullYear()} BCA Faculty Hub. Crafted with care.
           </p>
         </div>
       </div>

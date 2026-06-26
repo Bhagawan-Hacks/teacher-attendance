@@ -77,7 +77,7 @@ export function Login() {
               <GraduationCap size={22} />
             </div>
             <div className="leading-tight">
-              <div className="text-xl font-bold">EduMark</div>
+              <div className="text-xl font-bold">BCA</div>
               <div className="text-[11px] uppercase tracking-wider text-cream-100/70">Faculty Hub</div>
             </div>
           </Link>
@@ -100,7 +100,7 @@ export function Login() {
           </div>
 
           <p className="text-xs text-cream-100/50">
-            © {new Date().getFullYear()} EduMark. Crafted with care.
+            © {new Date().getFullYear()} BCA Faculty Hub. Crafted with care.
           </p>
         </div>
       </div>

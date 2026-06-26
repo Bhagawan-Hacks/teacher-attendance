@@ -67,7 +67,7 @@ export function Home() {
               <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl border border-cream-200 bg-cream-50/50 p-2 shadow-sm">
                 <img
                   src={heroIllustration}
-                  alt="EduMark Classroom Illustration"
+                  alt="BCA Faculty Hub Illustration"
                   className="h-full w-full object-cover rounded-2xl"
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-cream-100/10 via-transparent to-sage-50/10 pointer-events-none" />

@@ -29,7 +29,7 @@ export function Navbar() {
             <GraduationCap size={20} />
           </div>
           <div className="flex flex-col justify-center">
-            <div className="text-lg font-bold leading-none text-ink-900">EduMark</div>
+            <div className="text-lg font-bold leading-none text-ink-900">BCA</div>
             <div className="mt-0.5 text-[10px] font-semibold uppercase tracking-wider leading-none text-sage-500">Faculty Hub</div>
           </div>
         </Link>
